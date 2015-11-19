@@ -180,9 +180,9 @@ public class Screen extends JPanel implements KeyListener {
 						for (int j = 0; j < screenObjects.size(); j++){
 							ScreenObject obj2 = screenObjects.get(j);
 							if (obj2 instanceof MovingScreenObject){
-								MovingScreenObject moving2 = (MovingScreenObject) obj2;
+								MovingScreenObject moving2 = (MovingScreenObject) obj2; //TODO what does moving2 do?
 								if (movingObj == obj2){
-									;//do nothing if they're the same object
+									//do nothing if they're the same object
 								}
 							}
 						}

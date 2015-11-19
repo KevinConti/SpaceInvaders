@@ -6,8 +6,10 @@ import java.awt.Rectangle;
 
 public class MovingScreenObject extends ScreenObject {
 	
-	MyVector vector;
-	Image myImage;
+	//Changed these two to protected - Kevin
+	protected MyVector vector;
+	protected Image myImage;
+	
 	protected int age;
 	protected int maximumAge;
 
