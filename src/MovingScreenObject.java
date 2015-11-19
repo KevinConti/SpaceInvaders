@@ -6,10 +6,8 @@ import java.awt.Rectangle;
 
 public class MovingScreenObject extends ScreenObject {
 	
-	//Changed these two to protected - Kevin
-	protected MyVector vector;
-	protected Image myImage;
-	
+	MyVector vector;
+	Image myImage;
 	protected int age;
 	protected int maximumAge;
 
@@ -17,7 +15,7 @@ public class MovingScreenObject extends ScreenObject {
 
 	public MovingScreenObject(Point location, Rectangle size, Image i) {
 		super(location, size);
-		vector = new MyVector(0);
+		vector = new MyVector(0, 0);
 		myImage = i;
 		age = 0;
 		maximumAge = Integer.MAX_VALUE;
@@ -26,12 +24,19 @@ public class MovingScreenObject extends ScreenObject {
 	public void move(){
 		age++;
 		location.x += vector.getChangeX();
+		location.y += vector.getChangeY();
 		
 		if (location.x > Screen.screenWidth) {
 			location.x -= Screen.screenWidth;
 		}
 		if (location.x < 0) {
 			location.x += Screen.screenWidth;
+		}
+		if (location.y > Screen.screenWidth) {
+			location.y -= Screen.screenWidth;
+		}
+		if (location.y < 0) {
+			location.y += Screen.screenWidth;
 		}
 	
 	}

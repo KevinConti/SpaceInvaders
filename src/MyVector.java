@@ -2,10 +2,12 @@
 public class MyVector {
 	
 	private double changeX;
+	private double changeY;
 
-	public MyVector(double changeX) {
+	public MyVector(double changeX, double changeY) {
 		super();
 		this.changeX = changeX;
+		this.changeY = changeY;
 		
 	}
 	/**
@@ -20,5 +22,19 @@ public class MyVector {
 	public void setChangeX(double changeX) {
 		this.changeX = changeX;
 	}
+	/**
+	 * @return the changeY
+	 */
+	public double getChangeY() {
+		return changeY;
+	}
+	/**
+	 * @param changeY the changeY to set
+	 */
+	public void setChangeY(double changeY) {
+		this.changeY = changeY;
+	}
+	
+	
 
 }

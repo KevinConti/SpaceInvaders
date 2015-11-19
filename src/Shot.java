@@ -20,7 +20,7 @@ public class Shot extends MovingScreenObject {
 	}
 	
 	/**
-	 * To draw a shot, it is rotated by its orientation.
+	 * 
 	 * @param g The graphics object.
 	 */
 	public void draw(Graphics g) {

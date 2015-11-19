@@ -37,7 +37,7 @@ public class Screen extends JPanel implements KeyListener {
 	public Screen(TitleScreen screen) {
 		titleScreen = screen;
 		setPreferredSize(new Dimension(screenWidth, screenHeight));
-		setBackground(Color.yellow);
+		setBackground(Color.black);
 		screenObjects = new ArrayList<ScreenObject>();
 
 		background = new JLabel(new ImageIcon("TitleScreen.jpg"));
@@ -177,15 +177,17 @@ public class Screen extends JPanel implements KeyListener {
 					}
 					else{
 						movingObj.move();
+						/**
 						for (int j = 0; j < screenObjects.size(); j++){
 							ScreenObject obj2 = screenObjects.get(j);
 							if (obj2 instanceof MovingScreenObject){
-								MovingScreenObject moving2 = (MovingScreenObject) obj2; //TODO what does moving2 do?
+								MovingScreenObject moving2 = (MovingScreenObject) obj2;
 								if (movingObj == obj2){
-									//do nothing if they're the same object
+									;//do nothing if they're the same object
 								}
 							}
 						}
+						*/
 					}
 				}
 				double dx = playerShip.getVector().getChangeX();
@@ -203,12 +205,16 @@ public class Screen extends JPanel implements KeyListener {
 	//was trying different ways to get the cannon to move
 	@Override
 	public void keyPressed(KeyEvent event) {
-
 		double dx = 
 				5*Math.cos(
 						Math.toRadians(
 								playerShip.getAngle() - 90));
+		double dy = 
+        		5*Math.sin(
+        				Math.toRadians(
+        						playerShip.getAngle() - 90));
 		int keyCode = event.getKeyCode();
+		
 		switch( keyCode ) { 
 
 		case KeyEvent.VK_LEFT:
@@ -232,10 +238,13 @@ public class Screen extends JPanel implements KeyListener {
 			dx = 
 					15*Math.cos(Math.toRadians(playerShip.getAngle()
 							- 90));
+			dy = 
+        			15*Math.sin(Math.toRadians(playerShip.getAngle()
+        					- 90));
 
-			shot.setVector(new MyVector(dx));
+			shot.setVector(new MyVector(dx, dy));
 			shot.setAngle(playerShip.getAngle() - 90);
-			shot.setMaximumAge(40);
+			shot.setMaximumAge(28);
 			screenObjects.add(shot);
 
 
